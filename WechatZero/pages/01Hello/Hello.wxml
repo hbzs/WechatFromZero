@@ -1,0 +1,14 @@
+<include src="./template/header" />
+
+<text>{{authorName}}</text>
+<view>{{authorDesc}}</view>
+
+<button type='primary'>登录</button>
+<button bindtap='footerChange'>单刷尾部</button>
+
+<button wx:if="{{canIUse}}" open-type="contact"> 客服消息 </button>
+<contact-button wx:else></contact-button>
+
+<import src="./template/footer" />
+<template wx:if="{{footerDouble}}" is="footer01" />
+<template wx:else is="footer02" />

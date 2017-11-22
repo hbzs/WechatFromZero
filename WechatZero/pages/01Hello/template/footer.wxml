@@ -1,0 +1,11 @@
+<template name="footer01">
+
+我是尾部1
+
+</template>
+
+<template name="footer02">
+
+我是尾部2
+
+</template>
