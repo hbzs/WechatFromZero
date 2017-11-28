@@ -1,0 +1,11 @@
+image {
+  position: absolute;
+}
+
+view {
+  z-index: 100;
+  position: absolute;
+  left: 7rem;
+  top: 11rem;
+  font-weight:bold;
+}

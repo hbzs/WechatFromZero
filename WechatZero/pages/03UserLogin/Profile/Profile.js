@@ -1,19 +1,27 @@
-// pages/02Express/LookupExpress.js
+// pages/03UserLogin/Profile/Profile.js
+var app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderNo: null,
-    expressInfoList: null
+    username: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var userInfo = app.globalData.userInfo
+    if (userInfo == null) {
+      wx.redirectTo({
+        url: '../UserLogin/UserLogin'
+      })
+    } else {
+      this.setData({username: userInfo.username})
+    }
   },
 
   /**
@@ -63,26 +71,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  orderSearchTap : function (e) {
-    var thispage = this
-    this.getExpressInfo(this.data.orderNo, function (data) {
-      thispage.setData({ expressInfoList: data.result.list})
-    })
-  },
-
-  orderNoInput : function (e) {
-    this.setData({orderNo: e.detail.value})
-  },
-
-  getExpressInfo: function (nu, cb) {
-    if (!nu) return;
-    wx.request({
-      url: "http://v.juhe.cn/exp/index?com=yd&no="+ nu +"&dtype=&key=testkey",
-      success: function (res) {
-        cb(res.data)
-      }
-    })
   }
 })

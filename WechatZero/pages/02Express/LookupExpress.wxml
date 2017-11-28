@@ -1,2 +1,9 @@
-<!--pages/02Express/LookupExpress.wxml-->
-<text>pages/02Express/LookupExpress.wxml</text>
+<view class="container">
+<input type='text' confirm-type='serach' placeholder='请输入想要查询的订单号' bindinput='orderNoInput'></input>
+<button type="primary" bindtap='orderSearchTap'> 订单查询 </button>
+<scroll-view scroll-y style="height: 200px;">
+  <view wx:for="{{expressInfoList}}" wx:for-item="expressInfo">
+    {{expressInfo.remark}} - {{expressInfo.datetime}}
+  </view>
+</scroll-view> 
+</view>

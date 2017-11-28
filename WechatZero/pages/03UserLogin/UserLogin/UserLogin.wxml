@@ -1,0 +1,5 @@
+<view class="container">
+  <input type='text' placeholder='用户名' bindinput='usernameInput'></input>
+  <input type='password' placeholder='密码' bindinput='passwordInput'></input>
+  <button type='primary' bindtap='loginTap'>登  录</button>
+</view>

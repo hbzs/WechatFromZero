@@ -1,0 +1,2 @@
+<image src='../image/uc.jpg' mode='widthFix'></image>
+<view>{{username}}</view>

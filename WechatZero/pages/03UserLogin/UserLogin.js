@@ -1,12 +1,14 @@
-// pages/02Express/LookupExpress.js
+// pages/03UserLogin/UserLogin.js
+var app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderNo: null,
-    expressInfoList: null
+    username: null,
+    password: null
   },
 
   /**
@@ -65,24 +67,16 @@ Page({
   
   },
 
-  orderSearchTap : function (e) {
-    var thispage = this
-    this.getExpressInfo(this.data.orderNo, function (data) {
-      thispage.setData({ expressInfoList: data.result.list})
-    })
+  usernameInput: function (e) {
+    this.setData({username: e.detail.value})
   },
-
-  orderNoInput : function (e) {
-    this.setData({orderNo: e.detail.value})
+  passwordInput: function (e) {
+    this.setData({password: e.detail.value})
   },
-
-  getExpressInfo: function (nu, cb) {
-    if (!nu) return;
-    wx.request({
-      url: "http://v.juhe.cn/exp/index?com=yd&no="+ nu +"&dtype=&key=testkey",
-      success: function (res) {
-        cb(res.data)
-      }
+  loginTap: function (e) {
+    app.globalData.userInfo = {username: this.data.username, password: this.data.password}
+    wx.navigateTo({
+      url: './Profile/Profile'
     })
   }
 })

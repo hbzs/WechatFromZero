@@ -1,12 +1,11 @@
-// pages/02Express/LookupExpress.js
+// pages/03UserLogin/Index/Index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderNo: null,
-    expressInfoList: null
+  
   },
 
   /**
@@ -63,26 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  orderSearchTap : function (e) {
-    var thispage = this
-    this.getExpressInfo(this.data.orderNo, function (data) {
-      thispage.setData({ expressInfoList: data.result.list})
-    })
-  },
-
-  orderNoInput : function (e) {
-    this.setData({orderNo: e.detail.value})
-  },
-
-  getExpressInfo: function (nu, cb) {
-    if (!nu) return;
-    wx.request({
-      url: "http://v.juhe.cn/exp/index?com=yd&no="+ nu +"&dtype=&key=testkey",
-      success: function (res) {
-        cb(res.data)
-      }
-    })
   }
 })
